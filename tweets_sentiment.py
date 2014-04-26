@@ -1,3 +1,21 @@
+from collections import defaultdict
+import simplejson
+import sys
+
+##afinnfile = open(sys.argv[1])
+##tweet_file = open(sys.argv[2])
+afinnfile = open("AFINN-111.txt")
+tweet_file = open("twitterstream.txt")
+scores = {} 
+for line in afinnfile:
+    term, score  = line.split("\t")  # The file is tab-delimited. 
+    scores[term] = int(score)  # Convert the score to an integer.
+
+
+tweet = []
+text = []
+tweets_location = []
+tweet_words = []
 tweet_item = []
 tweet_score=0
 tweet_dict={}
